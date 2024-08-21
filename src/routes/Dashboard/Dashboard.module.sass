@@ -1,0 +1,188 @@
+// Copyright © 2024 Navarrotech
+
+$sidebarWidth: 350px
+$sidebarCollapsedWidth: 80px
+
+@each $theme in $themes
+    :global(.theme-#{$theme})
+        .Dashboard
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: row
+            position: relative
+            width: 100vw
+            height: 100vh
+            // background: $light
+
+            .watermark
+                position: fixed
+                top: 0.5em
+                right: 1em
+                width: 3.75em
+                height: 3.75em
+
+            .Sidebar
+                // @include shadow($strength: 5)
+                display: inline-block
+                position: relative
+
+                height: 100vh
+                max-height: 100vh
+                width: $sidebarWidth
+                max-width: $sidebarWidth
+                min-width: $sidebarCollapsedWidth
+
+                margin-right: auto
+
+                transition: width 200ms ease
+
+                z-index: 2
+
+                padding: 2em 1.5em
+
+                @if $theme == 'dark'
+                    background: $darker
+                @else
+                    background: $white
+
+                :not(.collapsed):not(:hover)
+                    .hideOnCollapse,
+                    :global(.nametag) p
+                        transition: opacity 150ms ease
+
+                &.collapsed:not(:hover)
+                    width: $sidebarCollapsedWidth
+                    max-width: $sidebarCollapsedWidth
+                    padding: 2em 0.5em
+
+                    .hideOnCollapse
+                        opacity: 0
+                        cursor-events: none
+
+                    .sidebarButtons
+                        > :global(.button)
+                            display: none
+
+                    :global(.nametag) p
+                        opacity: 0
+                        cursor-events: none
+
+                .sidebarButtons
+                    min-width: 200px
+
+                    padding: 0 1em
+                    > button,
+                    > a
+                        width: 33%
+
+                .SidebarItem
+                    display: flex
+                    align-items: center
+                    gap: 0.5em
+                    position: relative
+                    padding-left: 1em
+                    font-size: 1.5rem
+                    transition: color 300ms ease
+
+                    @if $theme == 'dark'
+                        color: $white
+                    @else
+                        color: $gray
+
+                    &:not(:last-child)
+                        margin-bottom: 1em
+
+                    &::before
+                        content: ' '
+                        display: block
+                        position: absolute
+                        left: 0.25em
+                        top: 0
+                        bottom: 0
+                        background: $primary
+                        width: 3px
+                        height: 0%
+                        margin: auto
+                        transition: height 300ms ease
+
+                    &.isActive,
+                    &:hover
+                        color: $primary
+
+                        &::before
+                            height: 100%
+
+            .Friendslist
+                // @include shadow($strength: 10)
+                display: inline-block
+                position: relative
+
+                height: 100vh
+                max-height: 100vh
+                width: $sidebarWidth
+                max-width: $sidebarWidth
+
+                position: fixed
+                left: -$sidebarWidth
+                bottom: 0
+                top: 0
+
+                padding: 1em 1.5em
+                z-index: 1
+
+                transition: left 450ms ease
+
+                @if $theme == 'dark'
+                    background: $dark
+                @else
+                    background: $lighter
+
+                .friends
+                    position: relative
+
+                    .myFriend
+                        width: 100%
+                        display: flex
+                        align-items: center
+                        justify-content: flex-start
+                        gap: 0.75em
+                        cursor: pointer
+                        transform-origin: left
+                        transition: 300ms ease
+
+                        p
+                            font-size: 1.5rem
+                            text-transform: capitalize
+                            max-width: calc($sidebarWidth - 2em - 48px - 0.75em)
+                            width: 100%
+                            overflow: hidden
+                            text-overflow: ellipsis
+                            white-space: nowrap
+
+                        &:hover
+                            color: $primary
+                            transform: scale(1.05)
+
+            .Application
+                display: inline-block
+                width: 100%
+                height: 100%
+                max-width: calc(100vw - $sidebarWidth)
+                max-height: 100vh
+                overflow: auto
+                transition: padding 450ms ease, max-width 200ms ease
+                padding: 0
+
+                > div:first-child
+                    padding: 6em 2em 0 2em
+
+            &.friendsActive
+                .Friendslist
+                    left: $sidebarWidth
+
+                .Application
+                    padding-left: $sidebarWidth
+
+            .Sidebar.collapsed:not(:hover) + .Application
+                max-width: calc(100vw - $sidebarCollapsedWidth)

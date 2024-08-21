@@ -1,0 +1,94 @@
+{
+  "vendor": "NebulaBlade's DnD",
+  "authenticate": {
+    "or": "Or",
+    "prompt_signup": "signup for free",
+    "prompt_login": "login now",
+    "google_signin": "Sign in with Google",
+    "google_signup": "Sign up with Google",
+    "forgot_password": "Forgot password?",
+    "use_phone": "Sign in with a phone number",
+    "login": "Log in",
+    "signup": "Sign up",
+    "terms_agreement": "By signing in, you are agreeing to our <0>Terms</0> and <1>Privacy Policy</1>."
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "email": "Enter your email below",
+    "send": "Send reset instructions",
+    "sent": "Reset email sent",
+    "instructions": "Check your email for instructions to reset your password.",
+    "back": "Back to log in"
+  },
+  "validator": {
+    "required": "{{what}} is required.",
+    "min": "{{what}} must be at least {{length}} characters long.",
+    "max": "{{what}} must be less than {{length}} characters long.",
+    "type": "{{what}} must be a {{type}}.",
+    "oneof": "{{what}} must be one of the following: {{values}}.",
+    "phone": "Please provide a valid phone number.",
+    "invalid_cannot_save": "Cannot save with errors",
+    "no_changes": "Disabled: No changes have been made"
+  },
+  "legal": {
+    "terms_of_service": "Terms",
+    "privacy_policy": "Privacy Policy"
+  },
+  "sidebar": {
+    "campaigns": "Campaigns",
+    "characters": "Characters"
+  },
+  "settings": {
+    "name": "Your full name (public)",
+    "username": "Username (public)",
+    "email": "Email address (private)"
+  },
+  "campaigns": {
+    "list_title": "My Campaigns",
+    "create": "Create a new campaign",
+    "create_subtitle": "Your adventure awaits!",
+    "no_campaigns": "You haven't created or joined any campaigns yet!",
+    "campaign_name": "Campaign Name",
+    "campaign_description": "Description"
+  },
+  "avatars": {
+    "select": "Select an avatar"
+  },
+  "page": {
+    "not_found_title": "Whoops! This is awkward.",
+    "not_found": "The page that you are looking for does not exist and cannot be found",
+    "back_to_home": "Back to Home"
+  },
+  "information": {
+    "created_at": "Created {{date}}"
+  },
+  "actions": {
+    "next": "Next",
+    "continue": "Continue",
+    "select": "Select",
+    "submit": "Submit",
+    "back": "Back",
+    "nice": "Nice",
+    "excellent": "Excellent",
+    "done": "Done",
+    "save": "Save",
+    "save_and_continue": "Save & Continue",
+    "skip": "Skip",
+    "cancel": "Cancel",
+    "close": "Close",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "upload": "Upload",
+    "play": "Play",
+    "yes": "Yes",
+    "no": "No",
+    "confirm": "Confirm"
+  },
+  "errors": {
+    "unauthorized": "You are not authorized.",
+    "failed_to_connect_to_api": "Failed to connect to the internet. Automatically retrying...",
+    "generic": "Error: Something unexpected happened."
+  },
+  "choose_language": "Select language"
+}

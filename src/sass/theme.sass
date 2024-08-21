@@ -1,0 +1,52 @@
+// Copyright © 2024 Navarrotech
+
+// This theme file is auto-loaded onto every scss/sass module in the project
+// However it is NOT autoloaded into non-modules, such as the bulma.scss file
+// See the vite.config.ts file to see how this is done
+
+///////////////
+//   USAGE   //
+///////////////
+
+// When using this file outside of a module, use
+// @use "./theme.sass" as *;
+// DO NOT use @import !!!
+
+// Navarrotech Brand
+$orange: #FF7700
+$red: #FF3554
+$redLight: #E13834
+$gray: #3E3B3B
+$green: #54b745 // Old color: #6FC961
+$blue: #2899D5
+$light: #f0f2f5
+
+// The backgrounds
+$superlight: #D3D3DE
+
+$black: #000000 // "Black" in the mockups
+$darker: #1A1A1C // "Dark" in the mockups
+$dark: #2C2C30 // "Medium" in the mockups
+$darkish: #434249 // "Light" in the mockups
+
+$white: #FFFFFF // The light version of $black
+$lighter: #F8F8F8 // The light version of $darker
+$light: #F0F0F0 // The light version of $dark
+$lightish: #d3d6de // The light version of $darkish
+
+// Bulma compatibility
+$primary: $blue
+$link: $blue
+$info: $gray
+$danger: $red
+$warning: $orange
+$success: $green
+
+// Screen size variables
+$gap: 32px
+$tablet: 769px
+$desktop: 960px + 2 * $gap
+$widescreen: 1152px + 2 * $gap
+$fullhd: 1344px + 2 * $gap
+
+$themes: light, dark

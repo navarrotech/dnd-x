@@ -1,0 +1,35 @@
+// Copyright © 2024 Navarrotech
+
+.CampaignList
+    display: flex
+    flex-flow: row wrap
+    gap: 1em
+
+.CampaignItem
+    width: 300px
+    border-radius: 4px
+    cursor: pointer
+    transition: transform 300ms ease, background 300ms ease
+    background: $darker
+
+    &:hover
+        background: $primary
+        transform: scale(1.05)
+
+    .cover
+        width: 100%
+        aspect-ratio: 16 / 8
+        background-size: cover
+        background-position: 50%
+        border-radius: 4px 4px 0 0
+
+    .titles
+        padding: 0.75em
+
+        .title
+            font-weight: 700
+            font-size: 1.25rem
+            margin-bottom: -0.25rem
+
+        .subtitle
+            font-size: 0.9rem

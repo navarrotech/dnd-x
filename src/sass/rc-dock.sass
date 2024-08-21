@@ -1,0 +1,36 @@
+// Copyright © 2024 Navarrotech
+
+// Use this file to override styles in the rc-dock library
+// This CSS will be imported AFTER the rc-dock, so you can override any styles you need to
+// All styles are :global() so they will not be scoped to the component
+
+$dockBorderColor: $dark
+
+body
+  &.theme-light
+
+  &.theme-dark
+    .dock-top
+      .dock-bar
+        background: $darker
+        border-bottom: 1px solid $dockBorderColor
+
+    .dock-panel
+      border: 1px solid $dockBorderColor
+
+    .dock-tab
+      &.dock-tab-active
+        background: rgba(255, 255, 255, 0.05)
+        color: $white
+
+      &:not(.dock-tab-active)
+        background: $darker
+
+// Make the cursor a pointer over tabs
+.dock-tab-btn
+  &:hover:not(:focus):not(:active)
+    cursor: pointer
+
+// This is a global class that's added to <body/> when dragging is active
+.dock-dragging
+  cursor: grabbing

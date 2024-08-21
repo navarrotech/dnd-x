@@ -1,0 +1,39 @@
+// Copyright © 2024 Navarrotech
+
+// These fonts are loaded locally from the frontend/public folder 
+// Instead of @import from a website address, to ensure that the font is always available while offline
+
+$font-weights: 100, 200, 300, 400, 500, 600, 700, 800, 900
+$font-styles: normal, italic
+
+/////////////////////
+// Montserrat Font //
+/////////////////////
+
+// https://fonts.google.com/specimen/Montserrat
+@each $weight in $font-weights
+  @each $style in $font-styles
+    @font-face
+      font-family: 'Montserrat'
+      src: url('/fonts/montserrat-#{$style}.ttf') format('truetype')
+      font-weight: $weight
+      font-style: $style
+
+// Online version:
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+
+/////////////////////
+//    Inter Font   //
+/////////////////////
+
+// https://fonts.google.com/specimen/Inter
+@each $weight in $font-weights
+  @each $style in $font-styles
+    @font-face
+      font-family: 'Inter'
+      src: url('/fonts/inter-#{$style}.ttf') format('truetype')
+      font-weight: $weight
+      font-style: $style
+
+// Online version:
+// @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap')

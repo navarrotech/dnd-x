@@ -1,0 +1,92 @@
+// Copyright © 2024 Navarrotech
+
+@keyframes progressbarEmpty
+  from
+    margin-left: 0%
+    transform: translateX(-100%)
+  to
+    margin-left: 100%
+    transform: translateX(0%)
+
+$multiProgressbarHeight: 2em !default
+$multiProgressbarBackground: #f3f3f7 !default
+
+.multi-progress
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  flex-direction: row
+  position: relative
+  width: 100%
+  height: $multiProgressbarHeight
+  min-height: $multiProgressbarHeight
+  border-radius: 12px
+  overflow: hidden
+  vertical-align: top
+  line-height: 5px
+  background: $multiProgressbarBackground
+  font-size: 0.33em
+  height: 0.33em
+
+  &:not(.no-animation):empty::before
+    content: ' '
+    display: block
+    height: $multiProgressbarHeight
+    width: 33%
+    min-width: 100px
+    background: $primary
+    animation: 1500ms ease progressbarEmpty infinite
+
+  .progress-item
+    position: relative
+    display: flex
+    min-height: $multiProgressbarHeight
+    overflow: hidden
+
+      // Overriding jquery "progressbar" element
+    -webkit-animation: none !important
+    animation: none !important
+
+    align-items: center
+    justify-content: center
+
+    height: 100%
+    color: white
+    text-align: center
+    padding: 0 1em
+    gap: 0.5em
+
+    &.is-primary
+      background: $primary
+    &.is-link
+      background: $link
+    &.is-info
+      background: $info
+    &.is-success
+      background: $success
+    &.is-warning
+      background: $warning
+    &.is-danger
+      background: $danger
+    &.is-dark
+      background: $dark
+    &.is-light
+      background: $light
+    &.is-white
+      background: $white
+    &.is-black
+      background: $black
+    &.is-animating
+      display: block !important
+      padding: 0 !important
+      *
+        display: none !important
+
+        &::after
+          content: ' '
+          display: block
+          height: $multiProgressbarHeight
+          width: 33%
+          min-width: 100px
+          background: rgba(255,255,255,0.4)
+          animation: 1300ms ease progressbarEmpty infinite

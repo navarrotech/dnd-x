@@ -1,0 +1,274 @@
+// Copyright © 2024 Navarrotech
+
+@use './theme.sass' as *;
+@use 'sass:color';
+
+// Bulma.io is the primary CSS framework used in this project.
+// https://bulma.io/documentation/
+
+$family-titles: 'Inter', Roboto, sans-serif;
+$family-primary: 'Montserrat', Arial, sans-serif;
+
+@use 'bulma/sass' with (
+  $family-primary: $family-primary,
+  $primary: $primary,
+  $link: $link,
+  $info: $info,
+  $title-family: $family-titles,
+  $input-shadow: none
+);
+
+////////////////////////
+//  Bulma extensions  //
+////////////////////////
+
+// List of officially supported Bulma extensions: https://bulma.io/extensions/
+
+// https://wikiki.github.io/layout/divider/
+@import 'bulma-divider';
+// https://wikiki.github.io/elements/tooltip/
+// Currently Bulma v1.0 was released and bulma-tooltip hasn't updated it, so we use the dist version
+@import '@creativebulma/bulma-tooltip/dist/bulma-tooltip.css';
+
+// Bulma themeing overrides
+
+.theme-light {
+  a {
+    color: $dark !important
+  }
+  p {
+    color: $dark;
+  }
+
+  strong {
+    color: $black;
+  }
+
+  .button {
+    &.is-primary {
+      &.is-inverted {
+        color: $black !important;
+      }
+    }
+    &.is-info {
+      &.is-inverted {
+        color: $black !important;
+      }
+    }
+  }
+
+  .background-is-black {
+    background: $white;
+  }
+  .background-is-darker {
+    background: $lighter;
+  }
+  .background-is-dark {
+    background: $light;
+  }
+  .background-is-darkish {
+    background: $lightish;
+  }
+}
+
+.theme-dark {
+  a {
+    color: white !important
+  }
+  .button {
+    &.is-primary,
+    &.is-success,
+    &.is-info {
+      &.is-inverted {
+        color: white !important;
+      }
+    }
+    &.is-toggle {
+      &:not(.is-active) {
+        background: $darker;
+        border-color: $darkish;
+      }
+      &.is-active {
+        background: $primary;
+        border-color: color.scale($primary, $lightness: 15%);
+      }
+    }
+  }
+
+  .textarea {
+    background: color.scale($darker, $lightness: -35%);
+    &:hover,
+    &:focus,
+    &:active {
+      background: color.scale($darker, $lightness: -50%);
+    }
+  }
+
+  .background-is-black {
+    background: $black;
+  }
+  .background-is-darker {
+    background: $darker;
+  }
+  .background-is-dark {
+    background: $dark;
+  }
+  .background-is-darkish {
+    background: $darkish;
+  }
+}
+
+@each $theme in $themes {
+  .theme-#{$theme} {
+    .control.invisible input {
+      &:not(:focus):not(:active) {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+      }
+      &:hover {
+        @if $theme == 'dark' {
+            background: rgba(255, 255, 255, 0.05) !important
+        }
+        @else {
+            background: rgba(0, 0, 0, 0.05) !important
+        }
+      }
+    }
+  }
+}
+
+// Bulma specific element overrides & extensions
+// Specifically defined AFTER Bulma to ensure that it overrides Bulma's styles
+
+.button {
+  &.is-primary {
+    &.is-inverted {
+      border-width: 2px;
+      border-style: solid;
+      background: transparent !important;
+      border-color: $primary;
+    }
+    color: $white;
+  }
+  &.is-info {
+    &.is-inverted {
+      border-width: 2px;
+      border-style: solid;
+      background: transparent !important;
+      border-color: $info;
+    }
+    color: $white;
+  }
+  &.is-toggle {
+    border-width: 3px;
+  }
+
+  &.is-logo {
+    height: 42px;
+    font-weight: 500;
+    border: none;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      left: 1.2em;
+    }
+  }
+  &.is-select-prompt {
+    background: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom-width: 2px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+.max-length {
+  position: absolute;
+  right: 0.3em;
+  bottom: 0.3em;
+  width: fit-content;
+  pointer-events: none;
+  text-align: right;
+  font-size: 0.9rem;
+  opacity: 0;
+  z-index: 1;
+}
+
+.control {
+  &.has-save-button {
+    position: relative;
+    width: calc(100% - 40px - 1em);
+
+    .buttons {
+      opacity: 0;
+      transition: opacity 300ms ease;
+      position: absolute;
+      right: calc(-40px - 1em);
+      border-radius: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    &:hover .buttons,
+    input:focus + .buttons,
+    input:active + .buttons {
+      opacity: 1;
+    }
+  }
+
+  input:focus + .max-length,
+  input:active + .max-length,
+  textarea:focus + .max-length,
+  textarea:active + .max-length {
+    opacity: 0.8;
+  }
+}
+
+.has-title-font {
+    font-family: $family-titles;
+}
+
+.block:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.field:not(:last-child) {
+    margin-bottom: 0.75rem;
+}
+
+.has-text-pretty {
+  text-wrap: pretty;
+}
+
+.is-fullwidth {
+  width: 100% !important;
+}
+
+textarea.no-resize {
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none !important;
+}
+
+input,
+textarea {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-bottom-width: 2px !important;
+  border-radius: 0 !important;
+}
+
+.input:focus,
+.input:active,
+.textarea:focus,
+.textarea:active {
+  border-color: $primary;
+}

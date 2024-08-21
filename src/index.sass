@@ -1,0 +1,75 @@
+// Copyright © 2024 Navarrotech
+
+// Sass modules
+@import "@/sass/bulma.scss"
+@import "@/sass/fonts.sass"
+
+body
+  height: 100vh !important
+
+  &.theme-dark
+    background: $black
+  &.theme-light
+    background: $light
+
+*
+  -webkit-tap-highlight-color: transparent
+
+.section
+  height: 100vh
+
+  &.is-beautiful
+    background: rgb(38,120,151)
+    background: linear-gradient(180deg, rgba(38,120,151,1) 0%, rgba(19,48,93,1) 35%, rgba(43,23,64,1) 100%)
+
+    h1, h2, span, p
+      color: white !important
+
+  &.is-danger
+    background: rgb(151,38,38)
+    background: linear-gradient(180deg, rgba(151,38,38,1) 0%, rgba(93,19,19,1) 35%, rgba(64,23,43,1) 100%)
+
+    h1, h2, span, p
+      color: white !important
+
+  > .container
+    height: 100%
+
+.advanced-select
+  .dropdown-menu
+    min-width: 18.5em
+
+  .dropdown-item
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    gap: 0.5em
+
+.nametag
+  margin: auto
+  width: fit-content
+  max-width: calc(350px - 2em)
+
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 1em
+
+  figure.is-64x64
+    min-width: 64px
+    max-width: 64px
+    max-height: 64px
+    max-height: 64px
+
+    img
+      border-radius: 0.6em
+
+.subcontainer
+  max-width: 400px
+
+.subcontainer,
+.image.is-centered,
+.centered
+  display: block
+  margin-left: auto
+  margin-right: auto
